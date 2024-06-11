@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(15, 15, 15);
+    color: white;
+
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+
+a,a:visited {
+    text-decoration: none;
+    display: block;
+}
+
+.display-none {
+    display: none;
+
+}
+
+.hidden {
+    visibility: hidden;
+}

@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+nav {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    position: fixed;
+    top: 0;
+    width: 100vw;
+
+    font-size: 2rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.social-media a {
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 30vw;
+    text-transform: uppercase;
+    transition: all 3s linear ease-in-out;
+
+    min-width: 370px;
+
+
+
+}
+
+
+
+/* tirar seta do input */
+input[type=number]::-webkit-inner-spin-button{
+    appearance: none; 
+}
+
+.timer {
+    display: flex;
+
+    font-size: clamp(5rem, 12vw, 15rem);
+    min-width: 300px;
+
+}
+
+.timer input {
+    all: unset;
+    padding: 0;
+    max-width: 12vw;
+
+}
+
+.btns button {
+    font-size: clamp(1rem, 2vw, 7rem);
+    background: none;
+    color: white;
+    font-weight: 100;
+    
+    border: none;
+    text-decoration: underline;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btns div {
+    display: flex;
+    gap: 5vw;
+}
+
+
+
