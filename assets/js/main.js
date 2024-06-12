@@ -10,6 +10,7 @@ const h1 = document.querySelector('.description')
 
 
 let time;
+let timeOut
 let started = false;
 let focus = false
 
@@ -35,31 +36,13 @@ function getTime() {
     return time
 }
 
-function resetTimer() {
-    timer.innerHTML = ''
-
-    for (let index = 0; index < 3; index++) {
-
-        inputs[index].value = index === 1 ? '05': '00'
-
-        timer.appendChild(inputs[index])
-
-        if (index < 2) {
-            timer.innerHTML += '<span>:</span>'
-
-        }
-    }
-
-    inputs[1].value = '05'
-}
-
 function playTime() {
 
     time = setInterval(() => {
         timer.innerHTML = updateTime()
     }, 1000)
 
-    setTimeout(() => {
+    timeOut = setTimeout(() => {
         clearInterval(time)
         alert("Tempo Acabou")
         resetTimer()
@@ -68,7 +51,30 @@ function playTime() {
         pause.classList.add('display-none')
         restart.classList.add('display-none')
 
+        started = false
+        
     }, timeNow + 1100)
+}
+
+function pauseTimer() {
+    clearInterval(time)
+    clearTimeout(timeOut)
+}
+
+function resetTimer() {
+    timer.innerHTML = ''
+
+    for (let index = 0; index < 3; index++) {
+
+        inputs[index].value = index === 1 ? '05' : '00'
+
+        timer.appendChild(inputs[index])
+
+        if (index < 2) {
+            timer.innerHTML += '<span>:</span>'
+
+        }
+    }
 }
 
 
@@ -87,7 +93,21 @@ play.addEventListener('click', () => {
 })
 
 pause.addEventListener('click', () => {
+    pauseTimer()
+})
 
+restart.addEventListener('click', () => {
+    if (!started) {
+        timeNow = getTime()
+        started = true
+    }
+    h1.classList.remove('hidden')
+
+    play.classList.add('display-none')
+    pause.classList.remove('display-none')
+    restart.classList.remove('display-none')
+
+    playTime()
 })
 
 
