@@ -1,22 +1,35 @@
-let timeNow;
+const main = document.querySelector('main')
+const h1 = document.querySelector('.description')
 const timer = document.querySelector('.timer')
-const inputs = document.querySelectorAll('.timer input')
 
 const play = document.querySelector('.play')
 const pause = document.querySelector('.pause')
 const restart = document.querySelector('.restart')
 
-const h1 = document.querySelector('.description')
 
-
+let timeNow;
 let time;
 let timeOut
+
 let started = false;
-let focus = false
+let inFocus = true
+let paused = false
+
+let lastTime;
+let timeFocus = 0;
+let timeRest = 0;
+
+let twentyFiveMinuts = 60 * 25 * 1000
+let fiveMinuts = 60 * 5 * 1000 
+
+let opacity = 100
+let varOpacity;
+
 
 function updateTime() {
     let date0 = new Date(timeNow)
     timeNow -= 1000
+
     console.log(date0.toLocaleTimeString('pt-BR', {
         timeZone: 'UTC',
         hour12: false
@@ -29,30 +42,50 @@ function updateTime() {
 }
 
 function getTime() {
+    const inputs = document.querySelectorAll('.timer input')
+
     const hour = inputs[0].value * 60 * 60 * 1000
     const min = inputs[1].value * 60 * 1000
     const sec = inputs[2].value * 1000
     const time = hour + min + sec
+
     return time
 }
 
 function playTime() {
 
+    varOpacity = opacity / (timeNow / 1000);
+
     time = setInterval(() => {
         timer.innerHTML = updateTime()
+        changeTheme()
     }, 1000)
+
+    started = true
 
     timeOut = setTimeout(() => {
         clearInterval(time)
         alert("Tempo Acabou")
-        resetTimer()
-
+        
         play.classList.remove('display-none')
         pause.classList.add('display-none')
         restart.classList.add('display-none')
 
+        timeNow = inFocus ? timeRest || fiveMinuts : timeFocus || twentyFiveMinuts
+        
+        inFocus = !inFocus
+
         started = false
         
+        main.style.opacity = 1
+
+        opacity = 100
+        
+        resetTimer(timeNow)
+        
+        h1.innerHTML = inFocus ? 'Foco' : 'Descanso'
+
+
     }, timeNow + 1100)
 }
 
@@ -61,53 +94,96 @@ function pauseTimer() {
     clearTimeout(timeOut)
 }
 
-function resetTimer() {
+function resetTimer(lastTime) {
     timer.innerHTML = ''
+    
+    let date = new Date(lastTime).toLocaleTimeString('pt-Br', {
+        timeZone: 'UTC',
+        hour12: false
+    }).split(':')
 
-    for (let index = 0; index < 3; index++) {
+    
 
-        inputs[index].value = index === 1 ? '05' : '00'
+    for (let i = 0; i < 3; i++) {
+        let time = date[i]
+        let input = `<input type="number" name="hour" id="hour" value="${time}"   
+        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        maxlength = "2">
+        `
+        timer.innerHTML += input
 
-        timer.appendChild(inputs[index])
-
-        if (index < 2) {
+        if (i < 2) {
             timer.innerHTML += '<span>:</span>'
-
         }
+
     }
+
 }
 
+function changeTheme() {
+
+    main.style.opacity = `${opacity}%`
+    opacity -= varOpacity - 5
+}
 
 play.addEventListener('click', () => {
+
     if (!started) {
+
         timeNow = getTime()
-        started = true
+        lastTime = getTime()
+
+        if (inFocus) {
+            timeFocus = getTime()
+
+        } else {
+            timeRest = getTime()
+        }
+
     }
+
+    console.log('entrou')
+
     h1.classList.remove('hidden')
 
     play.classList.add('display-none')
     pause.classList.remove('display-none')
     restart.classList.remove('display-none')
-
+    
     playTime()
+    
 })
 
 pause.addEventListener('click', () => {
+    if (paused) {
+        pause.innerHTML = 'Pausar'
+        playTime()
+        paused = false
+        return
+    }
+    pause.innerHTML = 'Iniciar'
     pauseTimer()
+    paused = true
+
 })
 
 restart.addEventListener('click', () => {
-    if (!started) {
-        timeNow = getTime()
-        started = true
-    }
-    h1.classList.remove('hidden')
+    pause.innerHTML = 'Pausar'
 
-    play.classList.add('display-none')
-    pause.classList.remove('display-none')
-    restart.classList.remove('display-none')
+    started = false
+    paused = false
+    timeNow = lastTime
 
-    playTime()
+    play.classList.remove('display-none')
+    pause.classList.add('display-none')
+    restart.classList.add('display-none')
+
+
+    pauseTimer()
+    resetTimer(lastTime)
+
+    main.style.opacity = 1
+
 })
 
 

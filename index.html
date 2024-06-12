@@ -11,17 +11,21 @@
 </head>
 <body>
     <nav>
-       <span>Pomodoro</span>
+       <span class="title">Pomodoro</span>
        <div class="social-media">
-        <a href="#">
+        <a href="https://github.com/Leonardo-Maciel-S">
             <i class="fa-brands fa-github"></i>
+            <span>Front End</span>
         </a>
-        <a href="#"> 
+        <a href="https://www.linkedin.com/in/leonardo-maciel-s/"> 
             <i class="fa-brands fa-linkedin-in"></i>
+            <span>Front End</span>
         </a>
-        <a href="#">
-            <i class="fa-brands fa-github"></i>
+        <a href="https://www.linkedin.com/in/eduardo-c-farias/"> 
+            <i class="fa-brands fa-linkedin-in"></i>
+            <span>Designer</span>
         </a>
+        
        </div>
     </nav>
 
@@ -29,9 +33,15 @@
         <h1 class="description hidden">Foco</h1>
 
         <div class="timer">
-            <input type="number" name="hour" id="hour" value="00"><span>:</span>
-            <input type="number" name="min" id="min" value="25"><span>:</span>
-            <input type="number" name="sec" id="sec" value="00">
+            <input type="number" name="hour" id="hour"  value="00"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            maxlength = "2"><span>:</span>
+            <input type="number" name="min" id="min"      value="25"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            maxlength = "2"><span>:</span>
+            <input type="number" name="sec" id="sec"     value="00"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            maxlength = "2">        
         </div>
 
         <div class="btns">

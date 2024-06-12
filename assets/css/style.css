@@ -23,6 +23,27 @@ nav {
 
 .social-media a {
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social-media a:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: blueviolet;
+}
+
+.social-media a:hover span{
+    visibility: visible;
+
+}
+
+
+.social-media span {
+    font-size: 16px;
+    visibility: hidden;
 }
 
 main {
@@ -37,7 +58,7 @@ main {
 
     min-width: 370px;
 
-
+    opacity: 100%;
 
 }
 
