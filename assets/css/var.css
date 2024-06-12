@@ -13,7 +13,7 @@
 }
 
 body {
-    background: var(--color-bg-white);
+    background: var(--color-bg-black);
     color: white;
 
     min-width: 100vw;

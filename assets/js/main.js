@@ -31,6 +31,8 @@ let varOpacity;
 let weight = 900
 let varWeigth;
 
+const audio = new Audio('./assets/audios/notification.mp3')
+
 
 function updateTime() {
     let date0 = new Date(timeNow)
@@ -76,7 +78,6 @@ function playTime() {
 
     timeOut = setTimeout(() => {
         clearInterval(time)
-        alert("Tempo Acabou")
         
         play.classList.remove('display-none')
         pause.classList.add('display-none')
@@ -97,6 +98,8 @@ function playTime() {
         h1.innerHTML = inFocus ? 'Foco' : 'Descanso'
         title.innerText = inFocus ? 'Foco' : 'Descanso'
 
+        audio.volume = 0.5
+        audio.play()
     }, timeNow + 1100)
 }
 
