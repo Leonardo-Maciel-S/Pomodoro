@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --color-bg-black: rgb(15, 15, 15);
-    --color-bg-white: rgb(238, 238, 238);
+    --color-bg-black: #1b1b1b;
+    --color-bg-white: #dedede;
 }
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    mix-blend-mode: difference;
+
 }
 
 body {
-    background-color: rgb(15, 15, 15);
+    background: var(--color-bg-white);
     color: white;
 
     min-width: 100vw;
@@ -24,7 +25,11 @@ body {
     align-items: center;
     flex-flow: column wrap;
 
+    text-underline-offset: none;
+
+    background-blend-mode: difference;   
     
+    transition: all linear 2s;
 }
 
 

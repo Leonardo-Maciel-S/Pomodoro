@@ -13,17 +13,17 @@
     <nav>
        <span class="title">Pomodoro</span>
        <div class="social-media">
-        <a href="https://github.com/Leonardo-Maciel-S">
+        <a href="https://github.com/Leonardo-Maciel-S" target="_blank">
             <i class="fa-brands fa-github"></i>
-            <span>Front End</span>
+            <span>Dev</span>
         </a>
-        <a href="https://www.linkedin.com/in/leonardo-maciel-s/"> 
+        <a href="https://www.linkedin.com/in/leonardo-maciel-s/" target="_blank"> 
             <i class="fa-brands fa-linkedin-in"></i>
-            <span>Front End</span>
+            <span>Dev</span>
         </a>
-        <a href="https://www.linkedin.com/in/eduardo-c-farias/"> 
+        <a href="https://www.linkedin.com/in/eduardo-c-farias/" target="_blank"> 
             <i class="fa-brands fa-linkedin-in"></i>
-            <span>Designer</span>
+            <span>Design</span>
         </a>
         
        </div>
@@ -32,14 +32,14 @@
     <main>
         <h1 class="description hidden">Foco</h1>
 
-        <div class="timer">
-            <input type="number" name="hour" id="hour"  value="00"
+        <div class="timer" id="timer"> 
+            <input type="number" name="hour" id="hour"  value="00" class="hour" 
             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
             maxlength = "2"><span>:</span>
-            <input type="number" name="min" id="min"      value="25"
+            <input type="number" name="min" id="min"      value="25" class="min"
             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
             maxlength = "2"><span>:</span>
-            <input type="number" name="sec" id="sec"     value="00"
+            <input type="number" name="sec" id="sec"     value="00" class="sec" 
             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
             maxlength = "2">        
         </div>
@@ -49,7 +49,7 @@
 
             <div>
                 <button class="pause display-none">Pausar</button>
-                <button class="restart display-none">Reinciar</button>
+                <button class="restart display-none">Reiniciar</button>
             </div>
         </div>
     </main>

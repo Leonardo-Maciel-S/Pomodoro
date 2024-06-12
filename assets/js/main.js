@@ -1,6 +1,9 @@
 const main = document.querySelector('main')
+const body = document.querySelector('body')
 const h1 = document.querySelector('.description')
 const timer = document.querySelector('.timer')
+const timerId = document.getElementById('timer')
+const title = document.querySelector('title')
 
 const play = document.querySelector('.play')
 const pause = document.querySelector('.pause')
@@ -19,26 +22,28 @@ let lastTime;
 let timeFocus = 0;
 let timeRest = 0;
 
-let twentyFiveMinuts = 60 * 25 * 1000
-let fiveMinuts = 60 * 5 * 1000 
+let twentyFiveMinuts = 60 * 25 * 1000 // 25 min
+let fiveMinuts = 60 * 5 * 1000 // 5 min
 
 let opacity = 100
 let varOpacity;
+
+let weight = 900
+let varWeigth;
 
 
 function updateTime() {
     let date0 = new Date(timeNow)
     timeNow -= 1000
 
-    console.log(date0.toLocaleTimeString('pt-BR', {
+    const hora = date0.toLocaleTimeString('pt-BR', {
         timeZone: 'UTC',
         hour12: false
-    }))
+        })
+        
+    title.innerText = hora.slice(3)
 
-    return date0.toLocaleTimeString('pt-BR', {
-        timeZone: 'UTC',
-        hour12: false
-    })
+    return hora
 }
 
 function getTime() {
@@ -54,11 +59,17 @@ function getTime() {
 
 function playTime() {
 
-    varOpacity = opacity / (timeNow / 1000);
+    
+
+    varOpacity = 100 / (timeNow / 1000);
+
+    varWeigth = 900 / (timeNow / 1000);
 
     time = setInterval(() => {
+        changeTimerWeight()
         timer.innerHTML = updateTime()
-        changeTheme()
+        // changeTheme()
+        
     }, 1000)
 
     started = true
@@ -72,7 +83,7 @@ function playTime() {
         restart.classList.add('display-none')
 
         timeNow = inFocus ? timeRest || fiveMinuts : timeFocus || twentyFiveMinuts
-        
+         
         inFocus = !inFocus
 
         started = false
@@ -84,7 +95,7 @@ function playTime() {
         resetTimer(timeNow)
         
         h1.innerHTML = inFocus ? 'Foco' : 'Descanso'
-
+        title.innerText = inFocus ? 'Foco' : 'Descanso'
 
     }, timeNow + 1100)
 }
@@ -126,7 +137,40 @@ function changeTheme() {
     opacity -= varOpacity - 5
 }
 
+
+function roleBy3(time) {
+    let cem = time
+    let fontCem = 900
+    let div = (timeNow * 100) / cem
+
+    return div
+    console.log('teste', div)
+}
+
+
+function changeTimerWeight() {
+
+    if (inFocus) {
+        weight = (roleBy3(timeFocus) / 100) * 900
+   
+        console.log(roleBy3(timeFocus))
+
+        timerId.style.fontWeight = `${weight}`
+        return
+    }
+
+    
+    weight = (roleBy3(timeRest) / 100) * 900 
+
+    console.log('time', timeRest)
+    console.log('wei', weight)
+    console.log(900 - weight)
+    timerId.style.fontWeight = `${900 - weight}`
+}
+
 play.addEventListener('click', () => {
+
+    body.style.background = inFocus ?  '#dedede': '#1b1b1b'
 
     if (!started) {
 
@@ -142,8 +186,6 @@ play.addEventListener('click', () => {
 
     }
 
-    console.log('entrou')
-
     h1.classList.remove('hidden')
 
     play.classList.add('display-none')
@@ -155,12 +197,15 @@ play.addEventListener('click', () => {
 })
 
 pause.addEventListener('click', () => {
+
     if (paused) {
         pause.innerHTML = 'Pausar'
         playTime()
         paused = false
         return
     }
+
+    
     pause.innerHTML = 'Iniciar'
     pauseTimer()
     paused = true
@@ -173,6 +218,7 @@ restart.addEventListener('click', () => {
     started = false
     paused = false
     timeNow = lastTime
+
 
     play.classList.remove('display-none')
     pause.classList.add('display-none')
