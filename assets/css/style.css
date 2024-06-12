@@ -100,9 +100,6 @@ input[type=number]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input[type=number] {
-    -moz-appearance:textfield;
-}
 
 .description {
     text-transform: uppercase;
@@ -142,6 +139,8 @@ input[type=number] {
     all: unset;
     padding: 0;
     max-width: 13vw;
+    -moz-appearance:textfield;
+
 }
 
 .btns button {
