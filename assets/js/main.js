@@ -1,5 +1,5 @@
-const main = document.querySelector('main')
 const body = document.querySelector('body')
+const main = document.querySelector('main')
 const h1 = document.querySelector('.description')
 const timer = document.querySelector('.timer')
 const timerId = document.getElementById('timer')
@@ -38,14 +38,14 @@ function updateTime() {
     let date0 = new Date(timeNow)
     timeNow -= 1000
 
-    const hora = date0.toLocaleTimeString('pt-BR', {
+    const hour = date0.toLocaleTimeString('pt-BR', {
         timeZone: 'UTC',
         hour12: false
         })
         
     title.innerText = hora.slice(3)
 
-    return hora
+    return hour
 }
 
 function getTime() {
@@ -147,7 +147,6 @@ function roleBy3(time) {
     let div = (timeNow * 100) / cem
 
     return div
-    console.log('teste', div)
 }
 
 
@@ -156,8 +155,6 @@ function changeTimerWeight() {
     if (inFocus) {
         weight = (roleBy3(timeFocus) / 100) * 900
    
-        console.log(roleBy3(timeFocus))
-
         timerId.style.fontWeight = `${weight}`
         return
     }
@@ -165,9 +162,6 @@ function changeTimerWeight() {
     
     weight = (roleBy3(timeRest) / 100) * 900 
 
-    console.log('time', timeRest)
-    console.log('wei', weight)
-    console.log(900 - weight)
     timerId.style.fontWeight = `${900 - weight}`
 }
 
