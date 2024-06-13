@@ -1,6 +1,12 @@
 # Projeto Pomodoro
 - Um site para auxiliar pessoas na utilização da técnica de pomodoro para aumentar o foco.
 
+## Tecnologias utilizadas
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
 ## O que é Pomodoro
 - "A técnica Pomodoro, desenvolvida em 1988 pelo italiano Francisco Cirillo, é um método de gestão de tempo que pode ser aplicado para diversas tarefas, seja nos estudos, seja no trabalho.
 
@@ -19,10 +25,10 @@
 - Esse valor fica salvo durante o uso da ferramenta, ou seja, enquanto não atualizar a página ele coloca o tempo uma vez para foco e uma vez para descanso.
 - É possível pausar, despausar e reiniciar o tempo.
 - Assim que o tempo acaba toca um som de notificação.
-- O tempo atualiza na guia do navegador, para que não seja preciso ficar clicando na página para ver quanto tempo falta.
+- O tempo atualiza na aba do navegador, para que não seja preciso ficar clicando na página para ver quanto tempo falta.
   
-## Detalhes do designer
-- Designer minimalista
+## Detalhes do design
+- Design minimalista
 - O fundo do site muda quando clica em iniciar, sendo preto para foco e branco para descanso.
 - O timer vai ficando mais fino quanto mais próximo do descanso estiver e vai engrossando do descanso para o foco.
 
