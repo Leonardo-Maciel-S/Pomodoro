@@ -38,14 +38,14 @@ function updateTime() {
     let date0 = new Date(timeNow)
     timeNow -= 1000
 
-    const hour = date0.toLocaleTimeString('pt-BR', {
+    const hora = date0.toLocaleTimeString('pt-BR', {
         timeZone: 'UTC',
         hour12: false
         })
         
     title.innerText = hora.slice(3)
 
-    return hour
+    return hora
 }
 
 function getTime() {
