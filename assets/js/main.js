@@ -165,9 +165,22 @@ function changeTimerWeight() {
     timerId.style.fontWeight = `${900 - weight}`
 }
 
+h1.addEventListener('click', () => {
+
+    inFocus = inFocus ? false : true
+
+    changeBackground()
+    
+})
+
+function changeBackground() {
+    body.style.background = inFocus ?  '#dedede': '#1b1b1b'
+
+}
+
 play.addEventListener('click', () => {
 
-    body.style.background = inFocus ?  '#dedede': '#1b1b1b'
+    changeBackground()
 
     if (!started) {
 
@@ -215,6 +228,16 @@ restart.addEventListener('click', () => {
     started = false
     paused = false
     timeNow = lastTime
+
+
+    const time = new Date(timeNow)
+    const hour = time.toLocaleTimeString('pt-BR', {
+        timeZone: 'UTC',
+        hour12: false
+    })
+
+    title.innerHTML = hour.slice(3)
+
 
 
     play.classList.remove('display-none')
