@@ -125,10 +125,6 @@ input[type=number]::-webkit-inner-spin-button {
     font-variation-settings: "wdth" 125;
 
     transition: all linear 1s;
-
-
-
-
 }
 
 #hour, #min, #sec {

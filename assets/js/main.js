@@ -109,6 +109,7 @@ function pauseTimer() {
 }
 
 function resetTimer(lastTime) {
+    
     timer.innerHTML = ''
     
     let date = new Date(lastTime).toLocaleTimeString('pt-Br', {
@@ -141,6 +142,7 @@ function changeTheme() {
 }
 
 
+
 function roleBy3(time) {
     let cem = time
     let fontCem = 900
@@ -165,18 +167,33 @@ function changeTimerWeight() {
     timerId.style.fontWeight = `${900 - weight}`
 }
 
-h1.addEventListener('click', () => {
-
-    inFocus = inFocus ? false : true
-
-    changeBackground()
-    
-})
-
 function changeBackground() {
     body.style.background = inFocus ?  '#dedede': '#1b1b1b'
-
+    
 }
+
+h1.addEventListener('click', () => {
+
+
+    pauseTimer()
+
+    inFocus = inFocus ? false : true
+    changeBackground()
+
+    h1.innerHTML = inFocus ? 'Foco' : 'Descanso'
+    title.innerText = inFocus ? 'Foco' : 'Descanso'
+
+    timeNow = inFocus ? timeFocus || twentyFiveMinuts : timeRest || fiveMinuts
+
+    started = false
+    
+    console.log(timeNow, 'timeNow')
+    console.log(lastTime, 'LastTime')
+
+    resetTimer(timeNow)
+
+    
+})
 
 play.addEventListener('click', () => {
 
