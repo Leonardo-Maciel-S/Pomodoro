@@ -155,14 +155,16 @@ function roleBy3(time) {
 function changeTimerWeight() {
 
     if (inFocus) {
-        weight = (roleBy3(timeFocus) / 100) * 900
+        weight = (roleBy3(timeFocus || twentyFiveMinuts) / 100) * 900
    
         timerId.style.fontWeight = `${weight}`
         return
     }
 
     
-    weight = (roleBy3(timeRest) / 100) * 900 
+    weight = (roleBy3(timeRest || fiveMinuts) / 100) * 900 
+
+    console.log(weight)
 
     timerId.style.fontWeight = `${900 - weight}`
 }
@@ -174,21 +176,19 @@ function changeBackground() {
 
 h1.addEventListener('click', () => {
 
-
     pauseTimer()
 
     inFocus = inFocus ? false : true
     changeBackground()
-
+    
     h1.innerHTML = inFocus ? 'Foco' : 'Descanso'
     title.innerText = inFocus ? 'Foco' : 'Descanso'
-
-    timeNow = inFocus ? timeFocus || twentyFiveMinuts : timeRest || fiveMinuts
-
-    started = false
     
-    console.log(timeNow, 'timeNow')
-    console.log(lastTime, 'LastTime')
+    timeNow = inFocus ? timeFocus || twentyFiveMinuts : timeRest || fiveMinuts
+    
+    changeTimerWeight()
+    
+    started = false
 
     resetTimer(timeNow)
 
