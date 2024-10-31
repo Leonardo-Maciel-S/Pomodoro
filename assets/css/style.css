@@ -7,7 +7,7 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    padding: 20px 30px;
+    padding: 20px 70px;
 
     position: fixed;
     top: 0;
@@ -51,24 +51,26 @@ nav {
     color: var(--color-bg-white);
 }
 
-.social-media a:hover span{
-    visibility: visible;
+.social-media a:hover span {
+    display: block;
+    
 }
 
 
 .social-media span {
-    
-    visibility: hidden;
-    position:absolute;
-    bottom: -30px;
+    display: none;
+    position: absolute;
+
+    top: 40px;
+    width: max-content;
 
     text-transform: uppercase;
     font-family: "Work Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: bolder;
+    font-weight: 400;
     font-style: normal;
 
-     font-size: clamp(1rem, 1vw, 3rem);
+    font-size: .7em; 
 }
 
 main {
@@ -90,8 +92,8 @@ main {
 
 
 /* tirar seta do input */
-input[type=number]::-webkit-inner-spin-button{
-    appearance: none; 
+input[type=number]::-webkit-inner-spin-button {
+    appearance: none;
 }
 
 input[type=number]::-webkit-outer-spin-button,
@@ -107,7 +109,7 @@ input[type=number]::-webkit-inner-spin-button {
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-    
+
     font-size: clamp(1rem, 1.5vw, 10rem);
 }
 
@@ -127,7 +129,9 @@ input[type=number]::-webkit-inner-spin-button {
     transition: all linear 1s;
 }
 
-#hour, #min, #sec {
+#hour,
+#min,
+#sec {
     text-align: center;
 }
 
@@ -135,7 +139,7 @@ input[type=number]::-webkit-inner-spin-button {
     all: unset;
     padding: 0;
     max-width: 13vw;
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
 
 }
 
@@ -144,7 +148,7 @@ input[type=number]::-webkit-inner-spin-button {
     background: none;
     color: white;
     font-weight: 100;
-    
+
     border: none;
     text-transform: uppercase;
     cursor: pointer;
@@ -168,8 +172,3 @@ input[type=number]::-webkit-inner-spin-button {
     display: flex;
     gap: 5vw;
 }
-
-
-
-
-

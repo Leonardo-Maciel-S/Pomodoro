@@ -1,5 +1,19 @@
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 
+    nav {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+
+    .social-media span {    
+        top: 30px;
+
+    }
+
+    .title {
+        font-weight: 300;
+    }
+    
 
     .timer {
         font-size: 3rem;

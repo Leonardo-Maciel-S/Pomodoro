@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
     <script src="https://kit.fontawesome.com/abe42b26ac.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/var.css">
+    <link rel="shortcut icon" href="/assets/img/clock.svg" type="image/svg">
+    <link rel=" stylesheet" href="assets/css/var.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media.css">
 
 </head>
+
 <body>
     <nav>
-       <span class="title">Pomodoro</span>
-       <div class="social-media">
-        <a href="https://github.com/Leonardo-Maciel-S">
-            <i class="fa-brands fa-github"></i>
-            <span>Front End</span>
-        </a>
-        <a href="https://www.linkedin.com/in/leonardo-maciel-s/"> 
-            <i class="fa-brands fa-linkedin-in"></i>
-            <span>Front End</span>
-        </a>
-        <a href="https://www.linkedin.com/in/eduardo-c-farias/"> 
-            <i class="fa-brands fa-linkedin-in"></i>
-            <span>Designer</span>
-        </a>
-        
-       </div>
+        <span class="title">Pomodoro</span>
+        <div class="social-media">
+            <a href="https://github.com/Leonardo-Maciel-S" target="_blank">
+                <i class="fa-brands fa-github"></i>
+                <span>Front End</span>
+            </a>
+            <a href="https://www.linkedin.com/in/leonardo-maciel-s/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <span>Front End</span>
+            </a>
+            <a href="https://www.linkedin.com/in/eduardo-c-farias/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <span>Designer</span>
+            </a>
+
+        </div>
     </nav>
 
     <main>
         <h1 class="description">Foco</h1>
 
         <div id="timer" class="timer">
-            <input type="number" name="hour" id="hour"  value="00"
-            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            maxlength = "2"><span>:</span>
-            <input type="number" name="min" id="min"      value="25"
-            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            maxlength = "2"><span>:</span>
-            <input type="number" name="sec" id="sec"     value="00"
-            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            maxlength = "2">        
+            <input type="number" name="hour" id="hour" value="00"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                maxlength="2"><span>:</span>
+            <input type="number" name="min" id="min" value="25"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                maxlength="2"><span>:</span>
+            <input type="number" name="sec" id="sec" value="00"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                maxlength="2">
         </div>
 
         <div class="btns">
@@ -56,4 +60,5 @@
 
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
